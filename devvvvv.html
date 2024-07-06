@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      background-color: black;
+      color: aliceblue;
+      font-family: Arial, sans-serif;
+    }
+    
+.box {
+    width: 300px; /* Fixed width for each box */
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px; /* Add border radius for rounded corners */
+    margin: 10px; /* Add spacing between boxes */
+    box-shadow: 0px 4px 8px rgba(255, 105, 180, 0.5); /* Pink shadow */
+    background-color: #f9f9f9; /* Add background color */
+    overflow: hidden; /* Ensure the image doesn't overflow the box */
+}
+
+.box img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover; /* Ensure the image covers the entire box */
+    border-radius: 8px; /* Add border radius for rounded corners */
+}
+
+.box h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333; /* Change text color */
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    text-shadow: 2px 2px 4px #FF4081; /* Pink shadow for text */
+    text-align: center; /* Center text */
+}
+
+.box p {
+    font-size: 16px;
+    color: #666; /* Change text color */
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    text-shadow: 2px 2px 4px #FF4081; /* Pink shadow for text */
+}
+
+/* Media query for devices with width up to 768px */
+@media screen and (max-width: 768px) {
+    .box {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+/* Media query for devices with width from 769px to 1024px */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .box {
+        width: calc(50% - 40px); /* Two boxes per row on medium screens */
+    }
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 10px;
+    left : 0;
+    width: 50px;
+    height: 50px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: opacity 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.message-icon {
+    position: fixed;
+    bottom: 10px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: opacity 0.3s;
+}
+
+.contact-form {
+    position: fixed;
+    bottom: 60px;
+    right: 40px;
+    width: 300px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    display: none;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.contact-form textarea {
+    resize: none; /* Make the textarea non-resizable */
+}
+
+.contact-form button {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+    .column {
+      float: left;
+      padding: 10px;
+    }
+    .ape {
+      width: 100%;
+      background-color: rgb(43, 61, 61);
+      vertical-align: middle;
+    }
+    .ape:hover {
+      background-color: beige;
+    }
+    .column.right {
+      width: 100%;
+      margin-left: 0%;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: auto;
+    }
+    .row::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    li {
+      float: left;
+    }
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    li a:hover {
+      color: red;
+    }
+    .card {
+      width: 190px;
+      background-color: black;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    }
+    .card-img-top {
+      width: 140px;
+      height: 140px;
+      transition: transform 0.2s;
+    }
+    .card:hover .card-img-top {
+      transform: scale(1.1);
+    }
+    .column.left::-webkit-scrollbar,
+    .column.right::-webkit-scrollbar,
+    .column::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+      display: none;
+    }   
+    
+    
+        .search-bar {
+          margin-bottom: 20px;
+        }
+       
+       .fire {
+  font-family: "Sofia", sans-serif;
+  font-size: 30px;
+}
+.myind {
+color:red;
+}
+.myind:hover{
+  color:aliceblue;
+  transform: scale(1.10);
+}
+.fixed {
+position:fixed;
+right: 0;
+bottom:10vw;
+}
+.fixedi {
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+  z-index: 3;
+}
+
+.profile-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    /*third card*/
+
+    .profile-card .audio-button, 
+    .profile-card .details-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .profile-card .audio-button {
+      right: 10px;
+    }
+    .profile-card .details-button {
+      left: 10px;
+    }
+    .profile-card:hover .audio-button,
+    .profile-card:hover .details-button {
+      display: block;
+    }
+    
+/*end 3rd*/
+
+/*start 1st*/
+.profile-card .audi-button,
+    .profile-card .details-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .profile-card .audi-button {
+      right: 10px;
+    }
+    .profile-card .details-button {
+      left: 10px;
+    }
+    .profile-card:hover .audi-button,
+    .profile-card:hover .details-button {
+      display: block;
+    }
+    
+
+/*end 1st*/
+
+/*start 2nd*/
+
+
+.profile-card .aud-button,
+    .profile-card .details-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .profile-card .aud-button {
+      right: 10px;
+    }
+    .profile-card .details-button {
+      left: 10px;
+    }
+    .profile-card:hover .aud-button,
+    .profile-card:hover .details-button {
+      display: block;
+    }
+    
+/*end 2nd*/
+
+
+/*start 4th*/
+
+.profile-card .au-button,
+    .profile-card .details-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .profile-card .au-button {
+      right: 10px;
+    }
+    .profile-card .details-button {
+      left: 10px;
+    }
+    .profile-card:hover .au-button,
+    .profile-card:hover .details-button {
+      display: block;
+    }
+    
+/*end 4th*/
+
+/*start 5th*/
+
+
+.profile-card .divyansh-button,
+    .profile-card .details-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .profile-card .divyansh-button {
+      right: 10px;
+    }
+    .profile-card .details-button {
+      left: 10px;
+    }
+    .profile-card:hover .divyansh-button,
+    .profile-card:hover .details-button {
+      display: block;
+    }
+    
+/*end 5th*/
+
+/*start 6th*/
+
+
+.profile-card .divyans-button,
+    .profile-card .details-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .profile-card .divyans-button {
+      right: 10px;
+    }
+    .profile-card .details-button {
+      left: 10px;
+    }
+    .profile-card:hover .divyans-button,
+    .profile-card:hover .details-button {
+      display: block;
+    }
+
+    /*end 6th*/
+
+    /*start 7th*/
+
+
+.profile-card .divyan-button,
+    .profile-card .details-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .profile-card .divyan-button {
+      right: 10px;
+    }
+    .profile-card .details-button {
+      left: 10px;
+    }
+    .profile-card:hover .divyan-button,
+    .profile-card:hover .details-button {
+      display: block;
+    }
+
+    /*end 7th*/
+
+    /*start 8th*/
+
+
+.profile-card .divya-button,
+    .profile-card .details-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .profile-card .divya-button {
+      right: 10px;
+    }
+    .profile-card .details-button {
+      left: 10px;
+    }
+    .profile-card:hover .divya-button,
+    .profile-card:hover .details-button {
+      display: block;
+    }
+
+    /*end 8th*/
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+      <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/240px-Spotify_logo_without_text.svg.png">  
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+
+    </head>
+<body>
+
+    <div class="row">
+        <div class="offcanvas offcanvas-start" id="demo" style="background-attachment: fixed; position: fixed; background-color: rgb(28, 18, 18); height: 100vh; overflow-y: auto;">
+          <div class="offcanvas-header">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul>
+              <li>
+                <img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0HHi4Px-hrRnsbnFUbBE4gc-66nmTDg9akw&s" width="24px;">
+              </li>
+              <li><h2 style="margin-left: 5px; color: white;">Spotify</h2></li>
+            </ul>
+            <ul>
+              <li>
+                <img src="https://w7.pngwing.com/pngs/848/762/png-transparent-computer-icons-home-house-home-angle-building-rectangle-thumbnail.png" width="24px;">
+              </li>
+              <li><h2 style="margin-left: 5px; color: white;">HOME</h2></li>
+            </ul>
+            <ul>
+              <li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyi_CVTmoL1ITHFxQkfLwvj93hcsgA1Olkhg&s" width="24px;">
+              </li>
+              <li><h3 style="margin-left: 5px; color: white;">Search</h3></li>
+            </ul>
+            <h3 style="margin-left: 5px; color: white;">Your Library +</h3>
+            <p style="background-color: black; margin-left: 5px; color: white;">Create your first playlist</p>
+            <a href="https://www.spotify.com/in-en/legal/end-user-agreement/" style="color: aliceblue; text-decoration: none; margin-right: 10px; margin-left: 5px;">Legal</a>
+            <a href="https://www.spotify.com/in-en/safetyandprivacy/reporting-content" style="color: aliceblue; text-decoration: none; margin-left: 5px;">Safety & Privacy Center</a>
+            <p style="margin-left: 5px;">English</p>
+          </div>
+        </div>
+        <div class="offcanvas offcanvas-start" id="dem"style="
+        background-attachment: fixed;
+        position:fixed;
+        background-color: rgb(28, 18, 18);
+        height:100vh;
+        overflow-y:auto ;">
+        <div class="offcanvas-header">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <h1 style="color: aliceblue;">Complaint Form</h1>
+          <form action="/action_page.php">
+            <div class="mb-3 mt-3">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="pwd">Comments or Complaints</label>
+              <input type="text" class="form-control" id="pwd" placeholder="Enter Comments or Complaints" name="pswd">
+            </div>
+            <div class="form-check mb-3">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          </div> 
+      </div>
+      </div>
+              
+          <div style="background-color: #c95555;margin-top: 0;">
+            <button class="btn btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" style="position: -webkit-sticky;
+            position: fixed;
+            top:0;
+            z-index: 3;">
+                  <img class="rounded-circle"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe-2VruoKbDhBiIJxUg1XtKLgklYsBUXGUBg&s" style="width:50px">
+                </button> 
+            <img src="https://pbs.twimg.com/profile_images/1387822869619478540/lhocXKtV_400x400.jpg" class="rounded-circle" width="200px" style="margin-top: 50px;margin-left: 40vw;">
+              <h1  class="font-effect-fire"style="font-size: 10vw;margin-left: 20%;">ARIJIT SINGH</h1>
+              <p style="margin-left: 1vw;">Verified Artist</p>
+              
+             </div>
+          <h1>Popular</h1>
+          <div class="d-flex flex-wrap">
+           
+            <input type="text" id="searchBar" class="form-control search-bar" placeholder="Search by category..." style="margin-left:25% ;margin-right:25%">
+    
+    <!--first card-->  
+    <div class="card profile-card" style="width: 18rem;margin-right: 15px;" data-category="Satranga">
+      <img src="satranga.jpg" class="card-img-top" alt="Profile Image" style="height:183px;width:fit-content;">
+      <div class="card-body">
+        <h5 class="card-title" style="color: aliceblue;">Satranga</h5>
+        <div id="details" class="collapse">
+          <p class="card-text" style="color: aliceblue;">Lorem ipsum qua.</p>
+          <a href="Satranga.mp3" download class="btn btn-primary">
+            <i class="bi bi-download"></i> Download Song
+          </a>
+        </div>
+  
+        <button type="button" class="audi-button" data-bs-toggle="tooltip" title="Play Song">
+          <i class="bi bi-play-fill"></i>
+        </button>
+        <button type="button" class="details-button" data-bs-toggle="collapse" data-bs-target="#details" data-bs-toggle="tooltip" title="Show Details">
+          <i class="bi bi-info-circle-fill"></i>
+        </button>
+        <audio id="audi" src="Satranga.mp3"></audio>
+      </div>
+      </div>   
+      
+      <!--second card-->
+      <div class="card profile-card" style="width: 18rem;margin-right: 15px;" data-category="Sajni">
+        <img src="sajni.jpg" class="card-img-top" alt="Profile Image" style="height:183px;width:fit-content">
+        <div class="card-body">
+          <h5 class="card-title" style="color:aliceblue;">Sajni</h5>
+          <div id="detail" class="collapse">
+            <p class="card-text" style="color: aliceblue;">Lorem ipsum qua.</p>
+            <a href="Sajni.mp3" download class="btn btn-primary">
+              <i class="bi bi-download"></i> Download Song
+            </a>
+          </div>
+    
+          <button type="button" class="aud-button" data-bs-toggle="tooltip" title="Play Song">
+            <i class="bi bi-play-fill"></i>
+          </button>
+          <button type="button" class="details-button" data-bs-toggle="collapse" data-bs-target="#detail" data-bs-toggle="tooltip" title="Show Details">
+            <i class="bi bi-info-circle-fill"></i>
+          </button>
+          <audio id="aud" src="Sajni.mp3"></audio>
+        </div>
+        </div>
+        
+        <!--third card-->
+                
+        <div class="card profile-card" style="width: 18rem;margin-right: 15px;" data-category="O Maahi">
+          <img src="maahi.jpg" class="card-img-top" alt="Profile Image" style="height:183px;width:fit-content;">
+          <div class="card-body">
+            <h5 class="card-title" style="color:aliceblue;">O Maahi</h5>
+            <div id="detai" class="collapse">
+              <p class="card-text" style="color:aliceblue;">Lorem ipsum qua.</p>
+              <a href="Maahi.mp3" download class="btn btn-primary">
+                <i class="bi bi-download"></i> Download Song
+              </a>
+            </div>
+      
+            <button type="button" class="audio-button" data-bs-toggle="tooltip" title="Play Song">
+              <i class="bi bi-play-fill"></i>
+            </button>
+            <button type="button" class="details-button" data-bs-toggle="collapse" data-bs-target="#detai" data-bs-toggle="tooltip" title="Show Details">
+              <i class="bi bi-info-circle-fill"></i>
+            </button>
+            <audio id="audio" src="Maahi.mp3"></audio>
+          </div>
+          </div>
+
+          <!--fourth card-->
+
+          <div class="card profile-card" style="width: 18rem;margin-right: 15px;" data-category="Heeriye">
+            <img src="heeriye.jpg" class="card-img-top" alt="Profile Image" style="height:183px;width:fit-content;">
+            <div class="card-body">
+              <h5 class="card-title" style="color:aliceblue;">Heeriye</h5>
+              <div id="deta" class="collapse">
+                <p class="card-text" style="color:aliceblue;">Lorem ipsum qua.</p>
+                <a href="Heeriye.mp3" download class="btn btn-primary">
+                  <i class="bi bi-download"></i> Download Song
+                </a>
+              </div>
+        
+              <button type="button" class="au-button" data-bs-toggle="tooltip" title="Play Song">
+                <i class="bi bi-play-fill"></i>
+              </button>
+              <button type="button" class="details-button" data-bs-toggle="collapse" data-bs-target="#deta" data-bs-toggle="tooltip" title="Show Details">
+                <i class="bi bi-info-circle-fill"></i>
+              </button>
+              <audio id="au" src="Heeriye.mp3"></audio>
+            </div>
+            </div>
+
+<!--5th card-->
+            
+<div class="card profile-card" style="width: 18rem;margin-right: 15px;" data-category="Kesariya">
+  <img src="kesariya.jpg" class="card-img-top" alt="Profile Image" style="height:183px;width:fit-content;">
+  <div class="card-body">
+    <h5 class="card-title" style="color:aliceblue;">Kesariya</h5>
+    <div id="det" class="collapse">
+      <p class="card-text" style="color:aliceblue;">Lorem ipsum qua.</p>
+      <a href="Kesariya.mp3
+        <i class="bi bi-download"></i> Download Song
+      </a>
+    </div>
+
+    <button type="button" class="divyansh-button" data-bs-toggle="tooltip" title="Play Song">
+      <i class="bi bi-play-fill"></i>
+    </button>
+    <button type="button" class="details-button" data-bs-toggle="collapse" data-bs-target="#det" data-bs-toggle="tooltip" title="Show Details">
+      <i class="bi bi-info-circle-fill"></i>
+    </button>
+    <audio id="divyansh" src="Kesariya.mp3"></audio>
+  </div>
+  </div>
+
+  <!--6th card-->
+
+  <div class="card profile-card" style="width: 18rem;margin-right: 15px;" data-category="Soulmate">
+    <img src="soulmate.jpg" class="card-img-top" alt="Profile Image" style="height:183px;width:fit-content;">
+    <div class="card-body">
+      <h5 class="card-title" style="color:aliceblue;">Soulmate</h5>
+      <div id="de" class="collapse">
+        <p class="card-text" style="color:aliceblue;">Lorem ipsum qua.</p>
+        <a href="Soulmate.mp3" download class="btn btn-primary">
+          <i class="bi bi-download"></i> Download Song
+        </a>
+      </div>
+
+      <button type="button" class="divyans-button" data-bs-toggle="tooltip" title="Play Song">
+        <i class="bi bi-play-fill"></i>
+      </button>
+      <button type="button" class="details-button" data-bs-toggle="collapse" data-bs-target="#de" data-bs-toggle="tooltip" title="Show Details">
+        <i class="bi bi-info-circle-fill"></i>
+      </button>
+      <audio id="divyans" src="Soulmate.mp3"></audio>
+    </div>
+    </div>
+
+    <!--7th card-->
+
+    <div class="card profile-card" style="width: 18rem;margin-right: 15px;" data-category="Chaleya">
+      <img src="chaleya.jpg" class="card-img-top" alt="Profile Image" style="height:183px;width:fit-content;">
+      <div class="card-body">
+        <h5 class="card-title" style="color:aliceblue;">Chaleya</h5>
+        <div id="d" class="collapse">
+          <p class="card-text" style="color:aliceblue;">Lorem ipsum qua.</p>
+          <a href="Chaleya.mp3" download class="btn btn-primary">
+            <i class="bi bi-download"></i> Download Song
+          </a>
+        </div>
+  
+        <button type="button" class="divyan-button" data-bs-toggle="tooltip" title="Play Song">
+          <i class="bi bi-play-fill"></i>
+        </button>
+        <button type="button" class="details-button" data-bs-toggle="collapse" data-bs-target="#d" data-bs-toggle="tooltip" title="Show Details">
+          <i class="bi bi-info-circle-fill"></i>
+        </button>
+        <audio id="divyan" src="Chaleya.mp3"></audio>
+      </div>
+      </div>
+
+      <!--8th card-->
+
+      <div class="card profile-card" style="width: 18rem;margin-right: 15px;" data-category="Shayad">
+        <img src="shayad.jpg" class="card-img-top" alt="Profile Image" style="height:183px;width:fit-content;">
+        <div class="card-body">
+          <h5 class="card-title" style="color:aliceblue;">Shayad</h5>
+          <div id="dt" class="collapse">
+            <p class="card-text" style="color:aliceblue;">Lorem ipsum qua.</p>
+            <a href="Shayad.mp3" download class="btn btn-primary">
+              <i class="bi bi-download"></i> Download Song
+            </a>
+          </div>
+    
+          <button type="button" class="divya-button" data-bs-toggle="tooltip" title="Play Song">
+            <i class="bi bi-play-fill"></i>
+          </button>
+          <button type="button" class="details-button" data-bs-toggle="collapse" data-bs-target="#dt" data-bs-toggle="tooltip" title="Show Details">
+            <i class="bi bi-info-circle-fill"></i>
+          </button>
+          <audio id="divya" src="Shayad.mp3"></audio>
+        </div>
+        </div>
+
+  </div>
+          <!-- Scroll to Top Button -->
+<div id="scrollTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+  &uarr;
+</div>
+
+<!-- Message Icon -->
+<div id="messageIcon" class="message-icon" onclick="toggleForm()">
+  &#9993;
+</div>
+
+<!-- Contact Form -->
+<div id="contactForm" class="contact-form">
+<form>
+  <h2>Contact Us</h2>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" required></textarea>
+  <button type="submit">Send</button>
+  <button type="button" onclick="toggleForm()">Close</button>
+</form>
+</div>
+
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+     
+     
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
+     <script>
+         document.getElementById('searchBar').addEventListener('input', function() {
+             let filter = this.value.toLowerCase();
+             let cards = document.querySelectorAll('.profile-card');
+   
+             cards.forEach(function(card) {
+                 let category = card.getAttribute('data-category').toLowerCase();
+                 if (category.includes(filter)) {
+                     card.style.display = '';
+                 } else {
+                     card.style.display = 'none';
+                 }
+             });
+         });
+     </script>    
+     <script>
+        // Function to scroll to the top of the page
+     function scrollToTop() {
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+     }
+     
+     // Show the scroll-to-top button when scrolled down 100px
+     window.onscroll = function() {
+         let scrollTopBtn = document.getElementById('scrollTopBtn');
+         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+             scrollTopBtn.classList.add('show');
+         } else {
+             scrollTopBtn.classList.remove('show');
+         }
+     };
+     
+     // Function to toggle the contact form
+     function toggleForm() {
+         let contactForm = document.getElementById('contactForm');
+         if (contactForm.style.display === 'none' || contactForm.style.display === '') {
+             contactForm.style.display = 'block';
+         } else {
+             contactForm.style.display ='none';
+     }
+     }    
+     </script>
+     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const audioButton = document.querySelector('.audi-button');
+        const audioIcon = audioButton.querySelector('i');
+        const audio = document.getElementById('audi');
+    
+        audioButton.addEventListener('click', function() {
+          if (audio.paused) {
+            audio.play();
+            audioIcon.classList.remove('bi-play-fill');
+            audioIcon.classList.add('bi-pause-fill');
+          } else {
+            audio.pause();
+            audioIcon.classList.remove('bi-pause-fill');
+            audioIcon.classList.add('bi-play-fill');
+          }
+        });
+      });
+    </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const audioButton = document.querySelector('.audio-button');
+    const audioIcon = audioButton.querySelector('i');
+    const audio = document.getElementById('audio');
+
+    audioButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('bi-play-fill');
+        audioIcon.classList.add('bi-pause-fill');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('bi-pause-fill');
+        audioIcon.classList.add('bi-play-fill');
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const audioButton = document.querySelector('.aud-button');
+    const audioIcon = audioButton.querySelector('i');
+    const audio = document.getElementById('aud');
+
+    audioButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('bi-play-fill');
+        audioIcon.classList.add('bi-pause-fill');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('bi-pause-fill');
+        audioIcon.classList.add('bi-play-fill');
+      }
+    });
+  });
+</script>
+    
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const audioButton = document.querySelector('.au-button');
+    const audioIcon = audioButton.querySelector('i');
+    const audio = document.getElementById('au');
+
+    audioButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('bi-play-fill');
+        audioIcon.classList.add('bi-pause-fill');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('bi-pause-fill');
+        audioIcon.classList.add('bi-play-fill');
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const audioButton = document.querySelector('.divyansh-button');
+    const audioIcon = audioButton.querySelector('i');
+    const audio = document.getElementById('divyansh');
+
+    audioButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('bi-play-fill');
+        audioIcon.classList.add('bi-pause-fill');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('bi-pause-fill');
+        audioIcon.classList.add('bi-play-fill');
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const audioButton = document.querySelector('.divyans-button');
+    const audioIcon = audioButton.querySelector('i');
+    const audio = document.getElementById('divyans');
+
+    audioButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('bi-play-fill');
+        audioIcon.classList.add('bi-pause-fill');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('bi-pause-fill');
+        audioIcon.classList.add('bi-play-fill');
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const audioButton = document.querySelector('.divyan-button');
+    const audioIcon = audioButton.querySelector('i');
+    const audio = document.getElementById('divyan');
+
+    audioButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('bi-play-fill');
+        audioIcon.classList.add('bi-pause-fill');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('bi-pause-fill');
+        audioIcon.classList.add('bi-play-fill');
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const audioButton = document.querySelector('.divya-button');
+    const audioIcon = audioButton.querySelector('i');
+    const audio = document.getElementById('divya');
+
+    audioButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('bi-play-fill');
+        audioIcon.classList.add('bi-pause-fill');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('bi-pause-fill');
+        audioIcon.classList.add('bi-play-fill');
+      }
+    });
+  });
+</script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
+         <script>
+            document.getElementById('searchBar').addEventListener('input', function() {
+                let filter = this.value.toLowerCase();
+                let cards = document.querySelectorAll('.profile-card');
+    
+                cards.forEach(function(card) {
+                    let category = card.getAttribute('data-category').toLowerCase();
+                    if (category.includes(filter)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        </script> 
+   </body>
+   </html>
+  
